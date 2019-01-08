@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<ui:composition template="/pages/private/index.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+				<p:panelGrid columns="1">
+					<p>Prencha o formulário abaixo: (<span style="font-weight: bold">Campos em negrito são obrigatórios</span>)</p>
+
+					<p:inputText id="regex" value="#{avaliacaoEditMB.avaliacao.anoRef}"
+						validatorMessage="Digite um ano válido, ex: 2018">
+						<f:validateRegex pattern="^(19[5-9]\d|20[0-4]\d|2050)$" />
+						<span style="font-weight: bold"> Digite o Ano de Referência: </span>
+					</p:inputText>
+					<p:message for="regex" />
+
+					<p:outputLabel for="mesRef" value="Selecione o Mês de Referência:" />
+					<p:selectOneListbox id="mesRef"
+						value="#{avaliacaoEditMB.avaliacao.mesRef}">
+						<f:selectItem itemLabel="Janeiro" itemValue="Janeiro" />
+						<f:selectItem itemLabel="Fevereiro" itemValue="Fevereiro" />
+						<f:selectItem itemLabel="Março" itemValue="Março" />
+						<f:selectItem itemLabel="Abril" itemValue="Abril" />
+						<f:selectItem itemLabel="Maio" itemValue="Maio" />
+						<f:selectItem itemLabel="Junho" itemValue="Junho" />
+						<f:selectItem itemLabel="Julho" itemValue="Julho" />
+						<f:selectItem itemLabel="Agosto" itemValue="Agosto" />
+						<f:selectItem itemLabel="Setembro" itemValue="Setembro" />
+						<f:selectItem itemLabel="Outubro" itemValue="Outubro" />
+						<f:selectItem itemLabel="Novembro" itemValue="Novembro" />
+						<f:selectItem itemLabel="Dezembro" itemValue="Dezembro" /> 
+					</p:selectOneListbox>
+
+					<p:inputNumber id="qtdpecas"
+						value="#{avaliacaoEditMB.avaliacao.qtdPecas}" decimalSeparator=","
+						thousandSeparator="." decimalPlaces="0"><span style="font-weight: bold">Quantidade de Peças </span><f:validateDoubleRange minimum="1" /> </p:inputNumber>
+						
+					<p:inputNumber id="lenha"
+						value="#{avaliacaoEditMB.avaliacao.qtdLenha}" decimalSeparator=","
+						thousandSeparator="." decimalPlaces="2">Quantidade de lenha (kg) </p:inputNumber>
+
+					<p:inputNumber id="agua"
+						value="#{avaliacaoEditMB.avaliacao.qtdAgua}" decimalSeparator=","
+						thousandSeparator="." decimalPlaces="2">Quantidade de água (l) </p:inputNumber>
+
+					<p:inputNumber id="corante"
+						value="#{avaliacaoEditMB.avaliacao.qtdCorante}"
+						decimalSeparator="," thousandSeparator="." decimalPlaces="2">Quantidade de corante (g) </p:inputNumber>
+
+					<p:inputNumber id="lodo"
+						value="#{avaliacaoEditMB.avaliacao.qtdLodo}" decimalSeparator=","
+						thousandSeparator="." decimalPlaces="2">Quantidade de lodo (kg) </p:inputNumber>
+
+					<p:inputNumber id="cinzas"
+						value="#{avaliacaoEditMB.avaliacao.qtdCinzas}"
+						decimalSeparator="," thousandSeparator="." decimalPlaces="2">Quantidade de cinzas (l) </p:inputNumber>
+
+					<h:inputHidden value="#{avaliacaoEditMB.avaliacao.id}" />
+					<h:inputHidden value="#{avaliacaoEditMB.avaliacao.dataRef}">
+						<f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" />
+					</h:inputHidden>
+					<p:commandButton value="Salvar Avaliação"
+						action="#{avaliacaoEditMB.salvar()}" ajax="false" />
+
+				</p:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

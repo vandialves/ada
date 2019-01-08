@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+
+<h:body>
+
+	<ui:composition template="/pages/private/index.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+			<h3>Perfil da Empresa:</h3>
+			
+		<p:panelGrid columns="1" layout="grid" styleClass="width800px">
+				<h:inputHidden value="#{usuarioEditMB.usuario.id}" />
+				
+				<p:inputText id="NomeFantasia" required="true" label="NomeFantasia"
+					value="#{usuarioEditMB.usuario.nomeFantasia}" styleClass="width800px"
+				    maxlength="100" >Nome Fantasia:   </p:inputText>
+				<p:inputText required="true" label="razaoSocial"
+					value="#{usuarioEditMB.usuario.razaoSocial}" styleClass="width800px"
+					maxlength="100">Razão Social:   </p:inputText>
+				<p:inputText required="true" label="cnpj"
+					value="#{usuarioEditMB.usuario.cnpj}" styleClass="width800px"
+					maxlength="100">CNPJ:   </p:inputText>
+				<p:inputText required="true" label="endereco"
+					value="#{usuarioEditMB.usuario.endereco}" styleClass="width800px"
+					maxlength="100">Endereço:   </p:inputText>
+				<p:inputText required="true" label="telefone"
+					value="#{usuarioEditMB.usuario.telefone}" styleClass="width800px"
+					maxlength="100">Telefone:   </p:inputText>
+					
+					
+				<p:commandButton value="salvar" action="#{usuarioEditMB.salvar()}"
+					ajax="false" />
+					
+				<h:inputHidden value="#{usuarioEditMB.usuario.login}" />
+				
+			
+			</p:panelGrid> 
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

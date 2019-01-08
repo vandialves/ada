@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>ADA - Avaliação de Desempenho Ambiental</title>
+	<link rel="shortcut icon" type="image/x-icon"
+		href="#{request.contextPath}/public/images/favicon.ico" />
+	<link rel="stylesheet" type="text/css"
+		href="#{request.contextPath}/public/css/bootstrap.css" />
+
+	<script>
+		PrimeFaces.locales['pt'] = {
+			closeText : 'Fechar',
+			prevText : 'Anterior',
+			nextText : 'Próximo',
+			currentText : 'Começo',
+			monthNames : [ 'Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio',
+					'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro',
+					'Novembro', 'Dezembro' ],
+			monthNamesShort : [ 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+					'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez' ],
+			dayNames : [ 'Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta',
+					'Sexta', 'Sábado' ],
+			dayNamesShort : [ 'Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb' ],
+			dayNamesMin : [ 'D', 'S', 'T', 'Q', 'Q', 'S', 'S' ],
+			weekHeader : 'Semana',
+			firstDay : 0,
+			isRTL : false,
+			showMonthAfterYear : false,
+			yearSuffix : '',
+			timeOnlyTitle : 'Só Horas',
+			timeText : 'Tempo',
+			hourText : 'Hora',
+			minuteText : 'Minuto',
+			secondText : 'Segundo',
+			ampm : false,
+			month : 'Mês',
+			week : 'Semana',
+			day : 'Dia',
+			allDayText : 'Todo o Dia'
+		};
+	</script>
+
+</h:head>
+<h:body>
+
+	<p:layout style="min-width:400px;min-height:600px;">
+
+		<p:layoutUnit position="west" resizable="true" size="250">
+			<h:form>
+				<p:menu>
+					<p:menuitem url="/pages/private/home.xhtml" value="Home"></p:menuitem>
+					<p:menuitem url="/pages/private/usuario/usuarioEdit.xhtml" value="Perfil"></p:menuitem>
+					<p:menuitem url="/pages/private/avaliacao/avaliacaoEdit.xhtml"
+						value="Nova Avaliação"></p:menuitem>
+					<p:menuitem url="/pages/private/avaliacao/filterRelatorio.xhtml"
+						value="Gerar Relatório"></p:menuitem>
+					<p:menuitem url="/pages/private/avaliacao/avaliacaoList.xhtml"
+						value="Histórico de Avaliações"></p:menuitem>
+					<p:menuitem url="/pages/private/avaliacao/avaliacaoReview.xhtml"
+						value="Indicadores mais recentes"></p:menuitem>
+					<p:menuitem url="/pages/private/avaliacao/ajuda.xhtml"
+						value="Ajuda (Contato)"></p:menuitem>
+					<p:menuitem url="/logout" value="Sair"></p:menuitem>
+				</p:menu>
+			</h:form>
+		</p:layoutUnit>
+
+		<p:layoutUnit id="layoutcenter" position="center">
+
+
+			<div id="conteudo2">
+
+				<h2>ADA - Avaliação de Desempenho Ambiental</h2>
+				<p></p>
+				<p></p>
+				<p>Sistema para Avaliação de Desempenho Ambiental de Lavanderias
+					de Jeans.</p>
+				<p></p>
+				<p></p>
+				<p>Gestores de lavanderias podem utilizar esse sistema para
+					auxiliar na tomada de decisão.</p>
+				<p></p>
+
+				<ui:insert name="conteudo2"></ui:insert>
+
+			</div>
+		</p:layoutUnit>
+	</p:layout>
+
+</h:body>
+</html>

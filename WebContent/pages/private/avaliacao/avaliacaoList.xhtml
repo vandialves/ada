@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+
+	<ui:composition template="/pages/private/index.xhtml">
+		<ui:define name="conteudo">
+		<h3>Histórico de Avaliações</h3>
+			<p:dataTable emptyMessage="Nenhum Registro Encontrado. Faça a sua primeira avaliação." id="datatable" var="avaliacao"
+				value="#{avaliacaoListMB.listaAvaliacao}" paginator="true" rows="10">
+				
+				<p:column headerText="Data de Referência" >
+					<h:outputText value="#{avaliacao.mesRef}/#{avaliacao.anoRef}" />
+				</p:column>
+				<p:column headerText="Quantidade de Peças">
+					<h:outputText value="#{avaliacao.qtdPecas}" />
+				</p:column>
+				<p:column headerText="Indicadores">
+					<p:commandLink
+						actionListener="#{avaliacaoReviewMB.preRevisar(avaliacao)}"
+						action="avaliacaoReview.xhtml">Detalhar</p:commandLink>
+				</p:column>
+				<p:column headerText="Editar Avaliação">
+					<p:commandLink
+						actionListener="#{avaliacaoEditMB.preAlterar(avaliacao)}"
+						action="avaliacaoEdit.xhtml">Alterar</p:commandLink>
+				</p:column>
+				<p:column headerText="Excluir Avaliação">
+					<p:commandLink update="datatable"
+						actionListener="#{avaliacaoListMB.excluir(avaliacao)}">Excluir</p:commandLink>
+				</p:column>
+			</p:dataTable>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

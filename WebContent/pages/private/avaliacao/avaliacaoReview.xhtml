@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<ui:composition template="/pages/private/index.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+				<p:panelGrid columns="1">
+					<h3>Indicadores</h3>
+
+					<c:if test="${empty avaliacaoReviewMB.vazio}">
+						<p>Nenhum Registro Encontrado. Faça a sua primeira avaliação.</p>
+						<p:button outcome="avaliacaoEdit" value="Fazer primeira Avaliação"></p:button>
+					</c:if>
+					
+					<c:if test="${not empty avaliacaoReviewMB.vazio}">
+						<p>Ano de Referência: #{avaliacaoReviewMB.avaliacao.anoRef}</p>
+						<p>Mês de Referência: #{avaliacaoReviewMB.avaliacao.mesRef}</p>
+
+						<h4>Consumo de Materiais</h4>
+						<p>Consumo de Lenha: #{avaliacaoReviewMB.avaliacao.clenha}</p>
+						<p>Consumo de Água: #{avaliacaoReviewMB.avaliacao.cH2O}</p>
+						<p>Consumo de Corante: #{avaliacaoReviewMB.avaliacao.cc}</p>
+
+						<h4>Gestão de Resíduos Sólidos</h4>
+
+						<p>Quantidade de Lodo: #{avaliacaoReviewMB.avaliacao.cl}</p>
+						<p>Quantidade de Cinzas: #{avaliacaoReviewMB.avaliacao.cci}</p>
+						
+						<p:button outcome="avaliacaoList" value="Voltar"></p:button>
+						
+					</c:if>
+				</p:panelGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

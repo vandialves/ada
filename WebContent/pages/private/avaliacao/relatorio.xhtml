@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<h:body>
+
+	<ui:composition template="/pages/private/index.xhtml">
+		<ui:define id="conteudo" name="conteudo">
+		
+		<h2>Relatório da Avaliação</h2>
+		
+				<input type="button" value="Imprimir (Salvar PDF)" onClick="window.print()"/>
+	
+		
+		<h3 style="text-decoration: underline;">Consumo de Materiais</h3>
+		<p:chart id="consumolenha" type="line" model="#{relatorioMB.lineModel1}" style="height:200px;" responsive="true" widgetVar="consumolenha"/>
+		<p>Consumo de Lenha - Estatísticas Descritivas:</p>
+		<p>#{relatorioMB.stat1}</p>
+		<p>#{relatorioMB.mmin1}</p>
+		<p>#{relatorioMB.mmax1}</p>
+		
+		<p:chart type="line" model="#{relatorioMB.lineModel2}" style="height:200px;" responsive="true" widgetVar="consumoagua"/>
+		<p>Consumo de Água - Estatísticas Descritivas:</p>
+		<p>#{relatorioMB.stat2}</p>
+		<p>#{relatorioMB.mmin2}</p>
+		<p>#{relatorioMB.mmax2}</p>
+		
+		<p:chart type="line" model="#{relatorioMB.lineModel3}" style="height:200px;" responsive="true" widgetVar="consumocorante"/>
+		<p>Consumo de Corante - Estatísticas Descritivas:</p>
+		<p>#{relatorioMB.stat3}</p>
+		<p>#{relatorioMB.mmin3}</p>
+		<p>#{relatorioMB.mmax3}</p>
+		<p> <br /> </p>
+		<h3 style="text-decoration: underline;">Gestão de Resíduos Sólidos</h3>
+		
+		<p:chart type="line" model="#{relatorioMB.lineModel4}" style="height:200px;" responsive="true" widgetVar="qtdlodo"/>
+		<p>Quantidade de Lodo - Estatísticas Descritivas:</p>
+		<p>#{relatorioMB.stat4}</p>
+		<p>#{relatorioMB.mmin4}</p>
+		<p>#{relatorioMB.mmax4}</p>
+		
+		<p:chart type="line" model="#{relatorioMB.lineModel5}" style="height:200px;" responsive="true" widgetVar="qtdcinzas"/>
+		<p>Quantidade de Cinzas - Estatísticas Descritivas:</p>
+		<p>#{relatorioMB.stat5}</p>
+		<p>#{relatorioMB.mmin5}</p>
+		<p>#{relatorioMB.mmax5}</p>
+		
+
+		
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>

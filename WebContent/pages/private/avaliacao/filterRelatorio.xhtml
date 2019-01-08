@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<ui:composition template="/pages/private/index.xhtml">
+		<ui:define name="conteudo">
+			<h:form>
+					<p>Caso deseje um relatório de todas as avaliações já
+						realizadas:</p>
+					<p:commandButton value="Gerar Relatório Completo"
+						action="#{filterMB.gerarCompleto()}" ajax="false" />
+					<p>
+						<br />
+					</p>
+					<p>Caso queira filtrar, selecione o período de referência:</p>
+
+					<p:layout style="min-width:500px;min-height:600px;">
+					
+						<p:layoutUnit position="west" resizable="true" size="350" minSize="300" maxSize="400">
+						
+       						 <p:outputLabel for="deMes" value="DE (Mês)" />
+					<p:selectOneListbox id="deMes" value="#{filterMB.deMes}">
+						<f:selectItem itemLabel="Janeiro" itemValue="Janeiro" />
+						<f:selectItem itemLabel="Fevereiro" itemValue="Fevereiro" />
+						<f:selectItem itemLabel="Março" itemValue="Março" />
+						<f:selectItem itemLabel="Abril" itemValue="Abril" />
+						<f:selectItem itemLabel="Maio" itemValue="Maio" />
+						<f:selectItem itemLabel="Junho" itemValue="Junho" />
+						<f:selectItem itemLabel="Julho" itemValue="Julho" />
+						<f:selectItem itemLabel="Agosto" itemValue="Agosto" />
+						<f:selectItem itemLabel="Setembro" itemValue="Setembro" />
+						<f:selectItem itemLabel="Outubro" itemValue="Outubro" />
+						<f:selectItem itemLabel="Novembro" itemValue="Novembro" />
+						<f:selectItem itemLabel="Dezembro" itemValue="Dezembro" />
+					</p:selectOneListbox>
+					
+					<p>
+						<br />
+					</p>
+
+					<p:inputText id="regexdeAno" value="#{filterMB.deAno}"
+						validatorMessage="Digite um ano válido, ex: 2018">
+						<f:validateRegex pattern="^(19[5-9]\d|20[0-4]\d|2050)$" />
+						<span style="font-weight: bold"> DE (Ano)</span>
+					</p:inputText>
+					<p:message for="regexdeAno" />
+					
+    					</p:layoutUnit>
+
+						<p:layoutUnit position="center">
+						
+        					<p:outputLabel for="ateMes" value="ATÉ (Mês)" />
+					<p:selectOneListbox id="ateMes" value="#{filterMB.ateMes}">
+						<f:selectItem itemLabel="Janeiro" itemValue="Janeiro" />
+						<f:selectItem itemLabel="Fevereiro" itemValue="Fevereiro" />
+						<f:selectItem itemLabel="Março" itemValue="Março" />
+						<f:selectItem itemLabel="Abril" itemValue="Abril" />
+						<f:selectItem itemLabel="Maio" itemValue="Maio" />
+						<f:selectItem itemLabel="Junho" itemValue="Junho" />
+						<f:selectItem itemLabel="Julho" itemValue="Julho" />
+						<f:selectItem itemLabel="Agosto" itemValue="Agosto" />
+						<f:selectItem itemLabel="Setembro" itemValue="Setembro" />
+						<f:selectItem itemLabel="Outubro" itemValue="Outubro" />
+						<f:selectItem itemLabel="Novembro" itemValue="Novembro" />
+						<f:selectItem itemLabel="Dezembro" itemValue="Dezembro" />
+					</p:selectOneListbox>
+					
+					<p>
+						<br />
+					</p>
+
+					<p:inputText id="regexateAno" value="#{filterMB.ateAno}"
+						validatorMessage="Digite um ano válido, ex: 2018">
+						<f:validateRegex pattern="^(19[5-9]\d|20[0-4]\d|2050)$" />
+						<span style="font-weight: bold"> ATÉ (Ano)</span>
+					</p:inputText>
+					<p:message for="regexateAno" />
+					<p>
+						<br />
+					</p>					
+					<p:commandButton style="align='center'" value="Gerar Relatório Filtrado"
+						action="#{filterMB.gerarRelatorio()}" ajax="false" />
+    					</p:layoutUnit>
+					</p:layout>
+
+			
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+</h:body>
+</html>
